@@ -1,11 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
 use App\Buku;
-
 use DB;
 
 class BookController extends Controller
@@ -47,7 +44,8 @@ class BookController extends Controller
         'pengarang' => $request->pengarang
     ]);
     // alihkan halaman ke halaman home
-    return redirect('/books');    }
+    return redirect('/books');
+    }
 
     /**
      * Display the specified resource.
@@ -80,7 +78,7 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // update data 
+    // update data
     public function update(Request $request)
     {
         // update data pegawai
@@ -102,6 +100,7 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('bukus')->where('id',$id)->delete();
+        return redirect('/books');
     }
 }

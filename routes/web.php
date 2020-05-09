@@ -11,8 +11,10 @@
 |
 */
 
-Route::resource('books','BookController');
-Route::post('/books/create','BookController@store');
-Route::get('/books/edit/{id}','BookController@edit');
-Route::post('/books/update/','BookController@update');
-Route::delete('/books/hapus/:id','BookController@store');
+
+Route::get('/books', 'BookController@index');
+Route::get('/books/create', 'BookController@create');
+Route::post('/books', 'BookController@store');
+Route::get('/books/edit/{id}', 'BookController@edit');
+Route::post('/books/update', 'BookController@update');
+Route::get('/books/{id}', 'BookController@destroy');
